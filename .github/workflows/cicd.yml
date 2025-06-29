@@ -33,24 +33,24 @@ jobs:
        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
 
-  #   steps:
-  #   - name: Check out branch
-  #     uses: actions/checkout@v4
+    steps:
+    - name: Check out branch
+      uses: actions/checkout@v4
 
-  #   - name: Docker Login
-  #     uses: docker/login-action@v2
-  #     with:
-  #       username: ${{secrets.Docker_Username}}
-  #       password: ${{secrets.Password}}
+    - name: Docker Login
+      uses: docker/login-action@v2
+      with:
+        username: ${{secrets.Docker_Username}}
+        password: ${{secrets.Password}}
 
-  #   - name: Build and Push Image
-  #     run: |
-  #       docker build -t terry/devops:${{github.sha}} .
-  #       docker push terry/devops:${{github.sha}}
+    - name: Build and Push Image
+      run: |
+        docker build -t terry/devops:${{github.sha}} .
+        docker push terry/devops:${{github.sha}}
 
   #   - name: Login to Azure
   #     uses: azure/login@v2
