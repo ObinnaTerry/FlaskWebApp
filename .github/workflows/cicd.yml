@@ -52,12 +52,12 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/devops:${{ github.sha }} .
         docker push ${{ secrets.DOCKER_USERNAME }}/devops:${{ github.sha }}
 
-  #   - name: Login to Azure
-  #     uses: azure/login@v2
-  #     with:
-  #       client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B0BA316D1B8944B49F83460A101CA7CB }}
-  #       tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F88E792F523B40718429CB14A22A2B75 }}
-  #       subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1554188C30844E3BAA37E428D9FA0C90 }}
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+        tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+        subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
   #   - name: Deploy Container APP
   #     uses: azure/webapps-deploy@v3
