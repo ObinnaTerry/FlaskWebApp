@@ -49,8 +49,8 @@ jobs:
 
     - name: Build and Push Image
       run: |
-        docker build -t terry/devops:${{github.sha}} .
-        docker push terry/devops:${{github.sha}}
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/devops:${{ github.sha }} .
+        docker push ${{ secrets.DOCKER_USERNAME }}/devops:${{ github.sha }}
 
   #   - name: Login to Azure
   #     uses: azure/login@v2
