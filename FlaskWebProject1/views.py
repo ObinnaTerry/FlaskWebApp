@@ -35,3 +35,19 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+
+@app.route('/final')
+def muhabbat():
+    """Renders the muhabbat page."""
+    return render_template(
+        'muhabbat.html',
+        title='Muhabbat Page',
+        message='Welcome to Muhabbat\'s page!'
+    )
+    
+@app.route('/kowshik')
+def kowshik():
+    """Renders the kowshik page."""
+    return "kowshik"    
+     
